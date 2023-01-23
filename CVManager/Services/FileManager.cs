@@ -8,7 +8,6 @@ namespace CVManager.Services;
 public class FileManager: IFileManager
 {
     private readonly string _rootDirectory;
-    private readonly string _requestPath;
     private static readonly List<string> SupportedExtensions = new List<string>
     {
         ".pdf", ".doc", ".docx", ".odt", ".png", ".jpg", ".jpeg", ".svg"
@@ -19,11 +18,6 @@ public class FileManager: IFileManager
         var config = new FileManagerConfig();
         configuration.GetSection(FileManagerConfig.Config).Bind(config);
         _rootDirectory = Path.Join(configuration.GetValue<string>(WebHostDefaults.ContentRootKey), config.Path);
-        _requestPath = config.RequestPath;
-        if (!_requestPath.EndsWith('/'))
-        {
-            _requestPath += '/';
-        }
         EnsureDirectory(_rootDirectory);
     }
     private void EnsureDirectory(string directory)
@@ -82,7 +76,6 @@ public class FileManager: IFileManager
             Extension = extension,
             ContentType = uploadedFile.ContentType,
             FileSize = uploadedFile.FileSize,
-            Url = _requestPath + relativeDir + '/' + (fileId % 100).ToString() + extension
         };
     }
 
