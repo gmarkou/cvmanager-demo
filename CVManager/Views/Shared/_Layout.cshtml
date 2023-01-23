@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - CVManager</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+</head>
+<body>
+<header class="header">
+    <div class="header__content">
+        <a class="header__title" asp-area="" asp-controller="Home" asp-action="Index">CVManager</a>
+        <nav class="header__nav">
+            <a class="header__button" asp-area="" asp-controller="Cv" asp-action="Index">Manage CVs</a>
+            <a class="header__button" asp-area="" asp-controller="Degree" asp-action="Index">Degrees</a>
+            <a class="header__button" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container">
+    <partial name="_Flash" />
+    <div>
+        @RenderBody()
+    </div>
+</div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

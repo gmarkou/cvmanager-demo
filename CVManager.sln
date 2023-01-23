@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVManager", "CVManager\CVManager.csproj", "{FFDF1858-F3E0-4510-A6A7-30A81DB1DB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVManager.DAL", "CVManager.DAL\CVManager.DAL.csproj", "{FF2838E5-E704-40F2-8488-21612E2ACAE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFDF1858-F3E0-4510-A6A7-30A81DB1DB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDF1858-F3E0-4510-A6A7-30A81DB1DB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDF1858-F3E0-4510-A6A7-30A81DB1DB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDF1858-F3E0-4510-A6A7-30A81DB1DB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2838E5-E704-40F2-8488-21612E2ACAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2838E5-E704-40F2-8488-21612E2ACAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2838E5-E704-40F2-8488-21612E2ACAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2838E5-E704-40F2-8488-21612E2ACAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

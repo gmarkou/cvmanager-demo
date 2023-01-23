@@ -1,0 +1,61 @@
+@model CVManager.DTO.CvDetailDto
+
+<div class="form-group">
+    <div>
+        <label>First Name</label>
+    </div>
+    <div>
+        <input asp-for="FirstName" value="@Model.FirstName" readonly />
+    </div>
+</div>
+<div class="form-group">
+    <div>
+        <label>Last Name</label>
+    </div>
+    <div>
+        <input asp-for="LastName" value="@Model.LastName" readonly />
+    </div>
+</div>
+<div class="form-group">
+    <div>
+        <label>Email</label>
+    </div>
+    <div>
+        <input asp-for="Email" value="@Model.Email" readonly />
+    </div>
+</div>
+<div class="form-group">
+    <div>
+        <label>Mobile number</label>
+    </div>
+    <div>
+        <input asp-for="Mobile" value="@Model.Mobile" readonly />
+    </div>
+</div>
+
+<div class="form-group">
+    <div>
+        <label>Degree</label>
+    </div>
+    <div>
+        @if (Model.Degree != null)
+        {
+            <input type="text" value="@Model.Degree.Title" readonly />
+        }
+        else
+        {
+            <input type="text"  value="" readonly />
+        }
+    </div>
+</div>
+
+<div class="form-group">
+    @if (Model.FileExtension == null)
+    {
+        <span>CV file: <i>none</i></span>
+    }
+    else
+    {
+        <span>CV file: <a href="/Cv/Download/@Model.Id" target="_blank">Document<span>@Model.FileExtension</span></a></span>
+    }
+</div>

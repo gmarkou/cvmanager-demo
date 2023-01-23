@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="mt-l">
+    <h1>Welcome to CV Manager.</h1>
+</div>
+<div class="mt-l">
+        @if (User.HasClaim(claim => claim.Type == "Editor"))
+        {
+            <p>You can view and edit <a asp-controller="Cv" asp-action="Index">all CVs</a> and also you can view and edit <a asp-controller="Degree" asp-action="Index">all degrees</a></p>
+        }
+        else
+        {
+            <p>You can view <a asp-controller="Cv" asp-action="Index">all CVs</a> and also you can view <a asp-controller="Degree" asp-action="Index">all degrees</a></p>
+        }
+</div>

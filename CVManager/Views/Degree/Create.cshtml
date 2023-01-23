@@ -1,0 +1,31 @@
+@model CVManager.DTO.DegreeDto
+
+
+@{
+    ViewData["Title"] = "New Degree";
+}
+
+<div class="degrees mt-l">
+    <div class="degrees__title">
+        Create a new Degree
+    </div>
+</div>
+
+<div class="degree-form">
+    <form asp-controller="Degree" asp-action="Create" method="post">
+        <div class="form-group">
+            <div>
+                <label asp-for="Title">Degree Title</label>
+            </div>
+            <div>
+                <input asp-for="Title">
+                <div><span asp-validation-for="Title" class="text-danger"></span></div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn" type="submit">Create</button>
+            <a class="btn btn--neutral" asp-controller="Degree" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,15 @@
+@model CVManager.DTO.CvDetailWithDegreesDto
+
+@if (Model.FileExtension != null)
+{
+    <div class="form-group fg-border" id="fg-file-view-delete">
+        <span id="current-file">
+            CV file: <a href="/Cv/Download/@Model.Id" target="_blank">Document<span>@Model.FileExtension</span></a>
+        </span>
+        <span>
+            <label for="DeleteFileCheck">Delete of Replace file</label>
+            <input type="checkbox" name="DeleteFile" id="DeleteFileCheck"/>
+        </span>
+    </div>    
+}
+

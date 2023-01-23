@@ -1,0 +1,32 @@
+@model CVManager.DTO.CvDetailDto
+
+@{
+    ViewData["Title"] = "Delete CV";
+}
+
+<div class="degrees mt-l">
+     <div class="degrees__title">
+         Delete CV
+     </div>
+ </div>
+
+<div class="cv-form">
+    <partial name="_CVPartialView" model="Model" />
+
+    <div>
+        <div class="q-danger">
+            Are you sure?
+        </div>
+        <form asp-controller="Cv" asp-action="Delete" method="post">
+            <div class="btn-group">
+                <input type="text" value="@Model.Id" hidden="hidden"/>
+                <button class="btn btn--danger" type="submit">Delete</button>
+                <a class="btn btn--neutral" asp-controller="Cv" asp-action="Detail" asp-route-id="@Model.Id">Cancel</a>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+

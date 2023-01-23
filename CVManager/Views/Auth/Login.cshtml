@@ -1,0 +1,57 @@
+@model CVManager.DTO.UserCredentials
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - CVManager</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true"/>
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        CV Manager Login    
+    </div>
+    <div class="login-form">
+        <form asp-controller="Auth" asp-action="Login" method="post">
+
+            <div class="field-group">
+                <div class="field-label">
+                    <label asp-for="Username">User name</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="user name" asp-for="Username" autofocus/>
+                </div>
+            </div>
+            <div class="field-group">
+                <div class="field-label">
+                    <label asp-for="Password">Password</label>
+                </div>
+                <div>
+                    <input type="password" placeholder="password" asp-for="Password"/>
+                </div>
+            </div>
+            <div class="field-group">
+                <div>
+                    <label class="cb-container">Keep me logged in
+                        <input type="checkbox" asp-for="KeepLoggedIn">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="right-container">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <partial name="_Flash" />
+</div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+

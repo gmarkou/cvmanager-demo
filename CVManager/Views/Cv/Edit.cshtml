@@ -1,0 +1,23 @@
+@model CVManager.DTO.CvDetailWithDegreesDto
+
+@{
+    ViewData["Title"] = "Edit CV";
+}
+
+<div class="degrees mt-l">
+     <div class="degrees__title">
+         Edit CV
+     </div>
+ </div>
+<div class="cv-form">
+    <form enctype="multipart/form-data" asp-controller="Cv" asp-action="Edit" method="post">
+        <partial name="_CVPartialEdit" model="Model" />
+        <Partial name="_CVFileViewDelete" model="Model" />
+        <Partial name="_CVFileUpload" model="Model" />
+        <div class="btn-group">
+            <button class="btn" type="submit">Save</button>
+            <a class="btn btn--neutral" asp-controller="Cv" asp-action="Detail" asp-route-id="@Model.Id">Cancel</a>
+        </div>
+    </form>
+</div>
+

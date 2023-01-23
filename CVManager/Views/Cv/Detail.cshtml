@@ -1,0 +1,24 @@
+@model CVManager.DTO.CvDetailDto
+@{
+    ViewData["Title"] = Model.LastName + " " + Model.FirstName;
+}
+
+<div class="degrees mt-l">
+    <div class="degrees__title">
+        CV Details
+    </div>
+</div>
+
+<div class="cv-form">
+    <partial name="_CVPartialView" model="Model" />
+    
+    <div class="btn-group">
+        @if (User.HasClaim(claim => claim.Type == "Editor"))
+        {
+            <a class="btn" asp-controller="Cv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn--danger" asp-controller="Cv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        }
+        <a class="btn btn--neutral" asp-controller="Cv" asp-action="Index">Back</a>
+    </div>
+</div>
+
