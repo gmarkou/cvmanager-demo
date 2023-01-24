@@ -38,7 +38,7 @@ public class DegreeController : ControllerBase
 
     [HttpPost]
     [Authorize(Policy= "Editor")]
-    //[ValidateAntiForgeryToken]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(DegreeDto degreeDto)
     {
         try
@@ -85,6 +85,7 @@ public class DegreeController : ControllerBase
 
     [HttpPost]
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(DegreeDto degreeDto)
     {
         try
@@ -130,6 +131,7 @@ public class DegreeController : ControllerBase
     
     [HttpPost]
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(DeleteDegreeDto data)
     {
         var degree = await _uow.Degree.Get(data.Id, false);

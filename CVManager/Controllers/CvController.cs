@@ -57,6 +57,7 @@ public class CvController : Controller
     }
 
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create()
     {
         var degrees = await _uow.Degree.All();
@@ -112,6 +113,7 @@ public class CvController : Controller
     
     [HttpPost]
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CvCreateUpdateDto dto)
     {
         var cv = _mapper.Map<Cv>(dto);
@@ -179,6 +181,7 @@ public class CvController : Controller
 
     [HttpPost]
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, CvCreateUpdateDto dto)
     {
         var oldCv = await _uow.Cv.Get(id, false);
@@ -254,6 +257,7 @@ public class CvController : Controller
 
     [HttpPost]
     [Authorize(Policy= "Editor")]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(DeleteCvDto dto)
     {
         var cv = await _uow.Cv.Get(dto.Id);
