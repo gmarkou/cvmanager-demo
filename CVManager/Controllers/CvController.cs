@@ -57,7 +57,6 @@ public class CvController : Controller
     }
 
     [Authorize(Policy= "Editor")]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create()
     {
         var degrees = await _uow.Degree.All();
@@ -118,11 +117,7 @@ public class CvController : Controller
     {
         var cv = _mapper.Map<Cv>(dto);
         
-        ModelState.ClearValidationState(nameof(Cv));
-        if (TryValidateModel(cv, nameof(Cv)))
-        {
-            ValidateCv(cv, ModelState);
-        }
+        ValidateCv(cv, ModelState);
         if (!ModelState.IsValid)
         {
             var newDto = _mapper.Map<CvDetailWithDegreesDto>(cv);
@@ -192,12 +187,7 @@ public class CvController : Controller
         
         var cv = _mapper.Map<Cv>(dto);
         
-        // ModelState.ClearValidationState(nameof(Cv));
-        // if (TryValidateModel(cv, nameof(Cv)))
-        // {
-            ValidateCv(cv, ModelState);
-        //}
-        
+        ValidateCv(cv, ModelState);
         if (!ModelState.IsValid)
         {
             var newDto = _mapper.Map<CvDetailWithDegreesDto>(cv);
